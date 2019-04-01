@@ -18,5 +18,7 @@ namespace HumanServices.Models
         public string FechaSalida { get; set; }
 
         public Empleados Empleados { get; set; }
+
+
     }
 }
