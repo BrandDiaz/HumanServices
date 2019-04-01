@@ -10,7 +10,15 @@ namespace HumanServices.Models
     {
         public DbSet<Empleados> Empleados { get; set; }
         public DbSet<Departamentos> Departamentos { get; set; }
-
         public System.Data.Entity.DbSet<HumanServices.Models.Cargos> Cargos { get; set; }
+        public DbSet<Nomina> Nomina { get; set; }
+        public System.Data.Entity.DbSet<HumanServices.Models.Salidas> Salidas { get; set; }
+        public DbSet<Vacaciones> Vacaciones { get; set; }
+        public DbSet<Permisos> Permisos { get; set; }
+        public DbSet<Licencias> Licencias { get; set; }
+
+        
+
+        
     }
 }

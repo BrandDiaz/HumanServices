@@ -15,100 +15,195 @@
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+
 </head>
 <body>
 
     <header id="top_header" class="clearfix">
         <div class="wrapper">
-            <div class="aa-header-bottom">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="aa-header-bottom-area">
+            <h2 class="logo"><<span>RH</span>></h2>
 
-                                <div class="aa-logo">
-
-                                    <a href="@Url.Action("Index","Home")">
-                                        <
-                                        <h2><strong>RecursosHumanos<strong> <span></span></h2>
-                                    </a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                
-                <nav id="main_nav">
-
-                    <a href="@Url.Action("Index","Empleados1")">Empleados</a>
-                    <a href="@Url.Action("Index","Departamentos")">Departamentos</a>
-                    <a href="@Url.Action("Index","Cargos")">Cargos</a>
-                    
-                </nav>
-
-            </div>
+            
+            <nav id="main_nav">
+                <a href="@Url.Action("Index","Empleados1")">Empleados</a>
+                <a href="@Url.Action("Index","Departamentos")">Departamentos</a>
+                <a href="@Url.Action("Index","Cargos")">Cargos</a>
+            </nav>
+        </div>
     </header>
 
+    
+    
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .dropbtn {
+                background-color: #3498DB;
+                color: white;
+                padding: 16px;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+                padding-right: -800px;
+            }
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-       
-    </div>
+                .dropbtn:hover, .dropbtn:focus {
+                    background-color: #2980B9;
+                }
 
-    <div>
-        <footer id="aa-footer">
+            .dropdown {
+                position: relative;
+                display: inline-block;
+                align-content: center;
+                text-align: center;
+            }
 
-            <div class="aa-footer-top">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="aa-footer-top-area">
-                                <div class="row">
-                                    <div class="col-md-3 col-sm-6">
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f1f1f1;
+                min-width: 160px;
+                overflow: auto;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+
+                .dropdown-content a {
+                    color: black;
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    display: block;
+                }
+
+            .dropdown a:hover {
+                background-color: #ddd;
+            }
+
+            .show {
+                display: block;
+            }
+        </style>
+   
+
+        <div align="center" class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Mantenimiento</button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="@Url.Action("Index","Empleados1")">Empleados</a>
+                <a href="@Url.Action("Index","Departamentos")">Departamentos</a>
+                <a href="@Url.Action("Index","Cargos")">Cargos</a>
+            </div>
+
+        </div>
+
+        <div class="dropdown">
+            <button onclick="myFunction2()" class="dropbtn">Procesos</button>
+            <div id="myDropdown2" class="dropdown-content">
+                <a href="@Url.Action("Index","Nominas")">Nomina</a>
+                <a href="@Url.Action("Index","Departamentos")">Deptamentos</a>
+                <a href="@Url.Action("Index","Cargos")">Caos</a>
+            </div>
+
+        </div>
+
+        <div class="dropdown">
+            <button onclick="myFunction3()" class="dropbtn">Informes</button>
+            <div id="myDropdown3" class="dropdown-content">
+                <a href="@Url.Action("Index","Empleados1")">Empleos</a>
+                <a href="@Url.Action("Index","Departamentos")">Deptamentos</a>
+                <a href="@Url.Action("Index","Cargos")">Caos</a>
+            </div>
+
+        </div>
+
+        <script>
+
+            function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+            }
+
+            function myFunction2() {
+                document.getElementById("myDropdown2").classList.toggle("show");
+            }
+
+            function myFunction3() {
+                document.getElementById("myDropdown3").classList.toggle("show");
+            }
+
+
+            window.onclick = function (event) {
+                if (!event.target.matches('.dropbtn')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
+            }
+        </script>
+
+
+
+
+
+<div class="container body-content">
+    @RenderBody()
+    <hr />
+
+</div>
+
+<div>
+    <footer id="aa-footer">
+
+        <div class="aa-footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="aa-footer-top-area">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="aa-footer-widget">
+                                        <h3>Main Menu</h3>
+                                        <ul class="aa-footer-nav">
+                                            <li><a href="#">Home</a></li>
+                                            <li><a href="#">Our Services</a></li>
+                                            <li><a href="#">Our Products</a></li>
+                                            <li><a href="#">About Us</a></li>
+                                            <li><a href="#">Contact Us</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="aa-footer-widget">
                                         <div class="aa-footer-widget">
-                                            <h3>Main Menu</h3>
+                                            <h3>Useful Links</h3>
                                             <ul class="aa-footer-nav">
-                                                <li><a href="#">Home</a></li>
-                                                <li><a href="#">Our Services</a></li>
-                                                <li><a href="#">Our Products</a></li>
-                                                <li><a href="#">About Us</a></li>
-                                                <li><a href="#">Contact Us</a></li>
+                                                <li><a href="#">Site Map</a></li>
+                                                <li><a href="#">Search</a></li>
+                                                <li><a href="#">Advanced Search</a></li>
+                                                <li><a href="#">Suppliers</a></li>
+                                                <li><a href="#">FAQ</a></li>
                                             </ul>
                                         </div>
                                     </div>
-
-                                    <div class="col-md-3 col-sm-6">
+                                </div>
+                                <div aling="right" class="col-md-3 col-sm-6">
+                                    <div class="aa-footer-widget">
                                         <div class="aa-footer-widget">
-                                            <div class="aa-footer-widget">
-                                                <h3>Useful Links</h3>
-                                                <ul class="aa-footer-nav">
-                                                    <li><a href="#">Site Map</a></li>
-                                                    <li><a href="#">Search</a></li>
-                                                    <li><a href="#">Advanced Search</a></li>
-                                                    <li><a href="#">Suppliers</a></li>
-                                                    <li><a href="#">FAQ</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div aling="right" class="col-md-3 col-sm-6">
-                                        <div class="aa-footer-widget">
-                                            <div class="aa-footer-widget">
-                                                <h3>Contact Us</h3>
-                                                <address>
-                                                    <p>Santo Domingo</p>
-                                                    <p><span class="fa fa-phone"></span>829-645-6755</p>
-                                                    <p><span class="fa fa-envelope"></span>Contact@Hotmail.com</p>
-                                                </address>
-                                                <div class="aa-footer-social">
-                                                    <a href="#"><span class="fa fa-facebook"></span></a>
-                                                    <a href="#"><span class="fa fa-twitter"></span></a>
-                                                    <a href="#"><span class="fa fa-google-plus"></span></a>
-                                                    <a href="#"><span class="fa fa-youtube"></span></a>
-                                                </div>
+                                            <h3>Contact Us</h3>
+                                            <address>
+                                                <p>Santo Domingo</p>
+                                                <p><span class="fa fa-phone"></span>829-645-6755</p>
+                                                <p><span class="fa fa-envelope"></span>Contact@Hotmail.com</p>
+                                            </address>
+                                            <div class="aa-footer-social">
+                                                <a href="#"><span class="fa fa-facebook"></span></a>
+                                                <a href="#"><span class="fa fa-twitter"></span></a>
+                                                <a href="#"><span class="fa fa-google-plus"></span></a>
+                                                <a href="#"><span class="fa fa-youtube"></span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -118,29 +213,30 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="aa-footer-bottom">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="aa-footer-bottom-area">
-                                <p>Designed by <a href="http://www.facebook.com"><span>ETBD</span></a></p>
-                                <div class="aa-footer-payment">
-                                    <span class="fa fa-cc-mastercard"></span>
-                                    <span class="fa fa-cc-visa"></span>
-                                    <span class="fa fa-paypal"></span>
-                                    <span class="fa fa-cc-discover"></span>
-                                </div>
+        <div class="aa-footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="aa-footer-bottom-area">
+                            <p>Designed by <a href="http://www.facebook.com"><span>ETBD</span></a></p>
+                            <div class="aa-footer-payment">
+                                <span class="fa fa-cc-mastercard"></span>
+                                <span class="fa fa-cc-visa"></span>
+                                <span class="fa fa-paypal"></span>
+                                <span class="fa fa-cc-discover"></span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </footer>
-    </div>
+        </div>
+    </footer>
+</div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
 </body>
 </html>

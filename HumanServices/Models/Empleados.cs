@@ -30,6 +30,12 @@ namespace HumanServices.Models
         public Cargos Cargos { get; set; }
 
 
+        public ICollection<Nomina> Nominas { get; set; }
+        public ICollection<Salidas> Salidas { get; set; }
+        public ICollection<Vacaciones> Vacaciones { get; set; }
+        public ICollection<Permisos> Permisos { get; set; }
+        public ICollection<Licencias> Licencias { get; set; }
+
 
     }
 }
