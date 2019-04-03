@@ -124,6 +124,19 @@ namespace HumanServices.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult FiltroStatusActivos(String Nombre)
+        {
+            var Nombres = from s in db.Empleados select s;
+            if (Estatus = 1)
+
+            {
+                Nombres = Nombres.Where(x => x.Nombre.Contains(Nombre));
+            }
+
+            return View(Nombres);
+        } 
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
