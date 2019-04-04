@@ -4,11 +4,9 @@
     ViewBag.Title = "MostrarActivos";
 }
 
-<h2>MostrarActivos</h2>
+<h2>Empleados Activos</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -71,9 +69,7 @@
             @Html.DisplayFor(modelItem => item.Estatus)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EmpleadoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EmpleadoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EmpleadoId })
+           
         </td>
     </tr>
 }

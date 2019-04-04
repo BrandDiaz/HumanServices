@@ -23,7 +23,7 @@ namespace HumanServices
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/sb-admin-2.css",
                       "~/Content/site.css"));
         }
     }

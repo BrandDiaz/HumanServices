@@ -1,0 +1,60 @@
+﻿@model IEnumerable<HumanServices.Models.Permisos>
+
+@{
+    ViewBag.Title = "FiltrarPermisos";
+}
+
+<h2>FiltrarPermisos</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo evento", "Create")
+
+    <form class="" action="/Permisos/FiltrarPermisos" method="post">
+
+<p>
+    Busqueda por Nombre: @Html.TextBox("Nombre", "", new { placeholder = "Ingrese nombre Empleado?" })<br\>
+        <input type="submit" name="" value="Buscar">
+</p>
+    </form>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Empleados.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Desde)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hasta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comentarios)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Empleados.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Desde)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hasta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comentarios)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PermisosId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PermisosId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PermisosId })
+            </td>
+        </tr>
+    }
+
+</table>

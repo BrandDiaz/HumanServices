@@ -4,11 +4,11 @@
     ViewBag.Title = "FiltroActivos";
 }
 
-<h2>FiltroActivos</h2>
+<h2>Empleados Activos</h2>
 
 <p>
 <p>
-    @Html.ActionLink("Crear nuevo contacto", "Create")
+    
     <form class="" action="/Empleados1/FiltroActivos" method="post">
 <p>
     Busqueda por nombre: @Html.TextBox("Nombre")<br\>
@@ -80,9 +80,7 @@
                 @Html.DisplayFor(modelItem => item.Estatus)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.EmpleadoId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.EmpleadoId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.EmpleadoId })
+              
             </td>
         </tr>
     }

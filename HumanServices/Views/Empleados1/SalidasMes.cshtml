@@ -1,17 +1,17 @@
 ﻿@model IEnumerable<HumanServices.Models.Empleados>
 
 @{
-    ViewBag.Title = "SalidasMes";
+    ViewBag.Title = "Salidas Mes";
 }
 
-<h2>SalidasMes</h2>
+<h2>Salidas en el Mes</h2>
 
 <p>
 <p>
-    @Html.ActionLink("Crear nuevo evento", "Create")
+   
     <form class="" action="/Empleados1/SalidasMes" method="post">
 <p>
-    Busqueda por Mes: @Html.TextBox("Fecha", "", new { placeholder = "Ingrese numero del mes?" })<br\>
+    Busqueda por Mes: @Html.TextBox("Fecha", "", new { placeholder = "Ingrese numero del mes" })<br\>
         <input type="submit" name="" value="Buscar">
 </p>
     </form>
@@ -80,9 +80,7 @@
                 @Html.DisplayFor(modelItem => item.Estatus)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.EmpleadoId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.EmpleadoId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.EmpleadoId })
+               
             </td>
         </tr>
     }

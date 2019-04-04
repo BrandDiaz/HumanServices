@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<HumanServices.Models.Empleados>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Empleados";
 }
 
-<h2>Index</h2>
+<h2>Empleados</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Añadir Nuevo", "Create")
 </p>
 <table class="table">
     <tr>
@@ -71,9 +71,9 @@
             @Html.DisplayFor(modelItem => item.Estatus)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EmpleadoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EmpleadoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EmpleadoId })
+            @Html.ActionLink("Editar", "Edit", new { id=item.EmpleadoId }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.EmpleadoId }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.EmpleadoId })
         </td>
     </tr>
 }

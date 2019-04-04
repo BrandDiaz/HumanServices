@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<HumanServices.Models.Licencias>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Licencias";
 }
 
-<h2>Index</h2>
+<h2>Licencias</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Añadir Nueva", "Create")
 </p>
 <table class="table">
     <tr>
@@ -47,9 +47,9 @@
             @Html.DisplayFor(modelItem => item.Comentarios)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.LicenciasId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.LicenciasId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.LicenciasId })
+            @Html.ActionLink("Editar", "Edit", new { id=item.LicenciasId }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.LicenciasId }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.LicenciasId })
         </td>
     </tr>
 }
