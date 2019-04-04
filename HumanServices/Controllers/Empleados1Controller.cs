@@ -124,17 +124,86 @@ namespace HumanServices.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult FiltroStatusActivos(String Nombre)
+        public ActionResult MostrarActivos(Empleados ed, String Nombre)
         {
             var Nombres = from s in db.Empleados select s;
-            if (Estatus = 1)
+            var Nombres2 = from x in db.Empleados select x;
 
+            if (ed.Estatus == false)
             {
-                Nombres = Nombres.Where(x => x.Nombre.Contains(Nombre));
+
+                Nombres = Nombres.Where(x => x.Estatus == true);
+
+
+
             }
 
             return View(Nombres);
-        } 
+        }
+
+        public ActionResult FiltroActivos(Empleados ed, String Nombre)
+        {
+            var Nombres = from s in db.Empleados select s;
+            var Nombres2 = from x in db.Empleados select x;
+
+            if (ed.Estatus == false)
+            {
+
+                Nombres = Nombres.Where(x => x.Estatus == true && x.Nombre.Contains(Nombre));
+
+
+
+            }
+
+            return View(Nombres);
+        }
+
+        public ActionResult MostrarInactivos(Empleados ed, String Nombre)
+        {
+            var Nombres = from s in db.Empleados select s;
+            var Nombres2 = from x in db.Empleados select x;
+
+            if (ed.Estatus == false)
+            {
+
+                Nombres = Nombres.Where(x => x.Estatus == false);
+
+
+
+            }
+
+            return View(Nombres);
+        }
+
+        public ActionResult EntradasMes(String Fecha)
+        {
+            var Event = from s in db.Empleados select s;
+
+            if (!String.IsNullOrEmpty(Fecha))
+            {
+                int Fecha1 = Convert.ToInt16(Fecha);
+
+
+                Event = Event.Where(x => x.FechaIngreso.Month == Fecha1);
+            }
+
+            return View(Event);
+        }
+
+        public ActionResult SalidasMes(String Fecha)
+        {
+            var Event = from s in db.Empleados select s;
+
+            if (!String.IsNullOrEmpty(Fecha))
+            {
+                int Fecha1 = Convert.ToInt16(Fecha);
+
+
+                Event = Event.Where(x => x.FechaIngreso.Month == Fecha1 && x.Estatus == false);
+            }
+
+            return View(Event);
+        }
 
 
         protected override void Dispose(bool disposing)

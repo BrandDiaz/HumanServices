@@ -323,6 +323,13 @@
     <Content Include="Views\Licencias\Details.cshtml" />
     <Content Include="Views\Licencias\Edit.cshtml" />
     <Content Include="Views\Licencias\Index.cshtml" />
+    <Content Include="Views\Empleados1\MostrarActivos.cshtml" />
+    <Content Include="Views\Cargos\MostrarCargos.cshtml" />
+    <Content Include="Views\Departamentos\MostrarDepartamentos.cshtml" />
+    <Content Include="Views\Empleados1\FiltroActivos.cshtml" />
+    <Content Include="Views\Empleados1\MostrarInactivos.cshtml" />
+    <Content Include="Views\Empleados1\EntradasMes.cshtml" />
+    <Content Include="Views\Empleados1\SalidasMes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

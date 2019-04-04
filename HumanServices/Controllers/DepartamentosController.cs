@@ -115,6 +115,17 @@ namespace HumanServices.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult MostrarDepartamentos(String Nombre)
+        {
+            var Nombres = from s in db.Departamentos select s;
+            if (!String.IsNullOrEmpty(Nombre))
+            {
+                Nombres = Nombres.Where(x => x.Nombre.Contains(Nombre));
+            }
+
+            return View(Nombres);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

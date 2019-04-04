@@ -110,9 +110,13 @@
         <div class="dropdown">
             <button onclick="myFunction3()" class="dropbtn">Informes</button>
             <div id="myDropdown3" class="dropdown-content">
-                <a href="@Url.Action("Index","Empleados1")">Empleos</a>
-                <a href="@Url.Action("Index","Departamentos")">Deptamentos</a>
-                <a href="@Url.Action("Index","Cargos")">Caos</a>
+                <a href="@Url.Action("MostrarActivos","Empleados1")">Ver Empleados</a>
+                <a href="@Url.Action("FiltroActivos","Empleados1")">Empleados Activos</a>
+                <a href="@Url.Action("MostrarInactivos","Empleados1")">Empleados Inactivos</a>
+                <a href="@Url.Action("MostrarDepartamentos","Departamentos")">Ver Departamentos</a>
+                <a href="@Url.Action("MostrarCargos","Cargos")">Ver Cargos</a>
+                <a href="@Url.Action("EntradasMes","Empleados1")">Entradas por mes</a>
+                <a href="@Url.Action("SalidasMes","Empleados1")">Salida por mes</a>
             </div>
 
         </div>
