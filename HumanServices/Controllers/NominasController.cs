@@ -39,7 +39,7 @@ namespace HumanServices.Controllers
         // GET: Nominas/Create
         public ActionResult Create()
         {
-            ViewBag.NominaTotal = new SelectList(db.Empleados, "EmpleadoId", "Nombre");
+            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Nombre");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace HumanServices.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "NominaId,Fecha,NominaTotal")] Nomina nomina)
+        public ActionResult Create([Bind(Include = "NominaId,Fecha,EmpleadoId,NominaTotal")] Nomina nomina)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace HumanServices.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.NominaTotal = new SelectList(db.Empleados, "EmpleadoId", "Nombre", nomina.NominaTotal);
+            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Nombre", nomina.EmpleadoId);
             return View(nomina);
         }
 
@@ -73,7 +73,7 @@ namespace HumanServices.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.NominaTotal = new SelectList(db.Empleados, "EmpleadoId", "Nombre", nomina.NominaTotal);
+            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Nombre", nomina.EmpleadoId);
             return View(nomina);
         }
 
@@ -82,7 +82,7 @@ namespace HumanServices.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "NominaId,Fecha,NominaTotal")] Nomina nomina)
+        public ActionResult Edit([Bind(Include = "NominaId,Fecha,EmpleadoId,NominaTotal")] Nomina nomina)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace HumanServices.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.NominaTotal = new SelectList(db.Empleados, "EmpleadoId", "Nombre", nomina.NominaTotal);
+            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Nombre", nomina.EmpleadoId);
             return View(nomina);
         }
 
@@ -118,6 +118,21 @@ namespace HumanServices.Controllers
             db.Nomina.Remove(nomina);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult FiltroNomina(String Fecha)
+        {
+            var Event = from s in db.Nomina select s;
+
+            if (!String.IsNullOrEmpty(Fecha))
+            {
+                int Fecha1 = Convert.ToInt16(Fecha);
+
+
+                Event = Event.Where(x => x.Fecha.Year == Fecha1 || x.Fecha.Month == Fecha1);
+            }
+
+            return View(Event);
         }
 
         protected override void Dispose(bool disposing)

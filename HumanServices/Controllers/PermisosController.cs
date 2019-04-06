@@ -120,6 +120,19 @@ namespace HumanServices.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult MostrarPermisos(Empleados ed,String Nombre)
+        {
+            var Nombres = from s in db.Permisos select s;
+            if (!String.IsNullOrEmpty(Nombre))
+            {
+                 int nombre2 = Convert.ToInt32(Nombre);
+                Nombres = Nombres.Where(x => x.EmpleadoId == nombre2);
+            }
+
+            return View(Nombres);
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

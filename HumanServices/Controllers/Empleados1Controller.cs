@@ -144,14 +144,14 @@ namespace HumanServices.Controllers
         public ActionResult FiltroActivos(Empleados ed, String Nombre)
         {
             var Nombres = from s in db.Empleados select s;
-            var Nombres2 = from x in db.Empleados select x;
+            var depar = from x in db.Empleados select x;
 
             if (ed.Estatus == false)
             {
 
                 Nombres = Nombres.Where(x => x.Estatus == true && x.Nombre.Contains(Nombre));
 
-
+              
 
             }
 

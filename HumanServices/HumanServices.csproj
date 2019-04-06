@@ -1952,11 +1952,6 @@
     <Content Include="Views\Empleados1\Details.cshtml" />
     <Content Include="Views\Empleados1\Edit.cshtml" />
     <Content Include="Views\Empleados1\Index.cshtml" />
-    <Content Include="Views\Nominas\Create.cshtml" />
-    <Content Include="Views\Nominas\Delete.cshtml" />
-    <Content Include="Views\Nominas\Details.cshtml" />
-    <Content Include="Views\Nominas\Edit.cshtml" />
-    <Content Include="Views\Nominas\Index.cshtml" />
     <Content Include="Views\Salidas\Create.cshtml" />
     <Content Include="Views\Salidas\Delete.cshtml" />
     <Content Include="Views\Salidas\Details.cshtml" />
@@ -1984,6 +1979,13 @@
     <Content Include="Views\Empleados1\MostrarInactivos.cshtml" />
     <Content Include="Views\Empleados1\EntradasMes.cshtml" />
     <Content Include="Views\Empleados1\SalidasMes.cshtml" />
+    <Content Include="Views\Nominas\Create.cshtml" />
+    <Content Include="Views\Nominas\Delete.cshtml" />
+    <Content Include="Views\Nominas\Details.cshtml" />
+    <Content Include="Views\Nominas\Edit.cshtml" />
+    <Content Include="Views\Nominas\Index.cshtml" />
+    <Content Include="Views\Nominas\FiltroNomina.cshtml" />
+    <Content Include="Views\Permisos\MostrarPermisos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

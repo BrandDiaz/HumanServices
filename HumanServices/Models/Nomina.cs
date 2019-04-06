@@ -12,6 +12,7 @@ namespace HumanServices.Models
         public DateTime Fecha { get; set; }
 
         [ForeignKey("Empleados")]
+        public int EmpleadoId { get; set; }
         public int NominaTotal { get; set; }
 
         public Empleados Empleados { get; set; }
