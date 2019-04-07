@@ -4,29 +4,42 @@
     ViewBag.Title = "FiltroNomina";
 }
 
-<h2>Nomina por Año/Mes</h2>
+<h2>Buscar Nomina</h2>
 
 <p>
 <p>
 
     <form class="" action="/Nominas/FiltroNomina" method="post">
-
-        Busqueda: @Html.TextBox("Fecha", "", new { placeholder = "Ingrese el numero" })<br\>
-            <input type="submit" name="" value="Buscar">
+<p>
+    Busqueda por Año: @Html.DropDownList("Fecha", ViewBag.Meses as SelectList, "Seleccione")
+        <input type="submit" name="" value="Buscar">
+</p>
     </form>
 </p>
 </p>
 
+
 <p>
-    @Html.ActionLink("Create New", "Create")
+<p>
+
+    <form class="" action="/Nominas/FiltroNomina" method="post">
+<p>
+    Busqueda por Mes: @Html.DropDownList("Fecha", ViewBag.Anio as SelectList, "Seleccione")<br\>
+        <input type="submit" name="" value="Buscar">
 </p>
+    </form>
+</p>
+</p>
+
+
 <table class="table">
     <tr>
+ 
         <th>
-            @Html.DisplayNameFor(model => model.Empleados.Nombre)
+            @Html.DisplayNameFor(model => model.Anio)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Fecha)
+            @Html.DisplayNameFor(model => model.Meses)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.NominaTotal)
@@ -37,19 +50,18 @@
     @foreach (var item in Model)
     {
         <tr>
+         
             <td>
-                @Html.DisplayFor(modelItem => item.Empleados.Nombre)
+                @Html.DisplayFor(modelItem => item.Anio)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Fecha)
+                @Html.DisplayFor(modelItem => item.Meses)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.NominaTotal)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.NominaId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.NominaId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.NominaId })
+         
             </td>
         </tr>
     }

@@ -126,8 +126,19 @@ namespace HumanServices.Controllers
 
         public ActionResult MostrarActivos(Empleados ed, String Nombre)
         {
+
+            var departamentos = db.Departamentos.ToList();
+
+            var listadepartamentos = new SelectList(departamentos, "DepartamentoId", "Nombre");
+            ViewBag.departamentos = listadepartamentos;
+
+            var cargos = db.Cargos.ToList();
+
+            var listacargos = new SelectList(cargos, "CargoId", "Cargo");
+            ViewBag.cargos = listacargos;
+
             var Nombres = from s in db.Empleados select s;
-            var Nombres2 = from x in db.Empleados select x;
+            
 
             if (ed.Estatus == false)
             {
@@ -141,10 +152,26 @@ namespace HumanServices.Controllers
             return View(Nombres);
         }
 
-        public ActionResult FiltroActivos(Empleados ed, String Nombre)
+        public ActionResult FiltroActivos(Empleados ed, Departamentos dp, String Nombre)
         {
+            var departamentos = db.Departamentos.ToList();
+
+            var listadepartamentos = new SelectList(departamentos, "Nombre", "Nombre");
+            ViewBag.departamentos = listadepartamentos;
+
+            var cargos = db.Cargos.ToList();
+
+            var listacargos = new SelectList(cargos, "CargoId", "Cargo");
+            ViewBag.cargos = listacargos;
+
+            var empleados = db.Empleados.ToList();
+
+            var listaEmpleados = new SelectList(empleados, "Nombre", "Nombre");
+            ViewBag.Empleados = listaEmpleados;
+
+
             var Nombres = from s in db.Empleados select s;
-            var depar = from x in db.Empleados select x;
+            
 
             if (ed.Estatus == false)
             {
@@ -160,6 +187,18 @@ namespace HumanServices.Controllers
 
         public ActionResult MostrarInactivos(Empleados ed, String Nombre)
         {
+
+            var departamentos = db.Departamentos.ToList();
+
+            var listadepartamentos = new SelectList(departamentos, "DepartamentoId", "Nombre");
+            ViewBag.departamentos = listadepartamentos;
+
+            var cargos = db.Cargos.ToList();
+
+            var listacargos = new SelectList(cargos, "CargoId", "Cargo");
+            ViewBag.cargos = listacargos;
+
+
             var Nombres = from s in db.Empleados select s;
             var Nombres2 = from x in db.Empleados select x;
 
@@ -177,6 +216,23 @@ namespace HumanServices.Controllers
 
         public ActionResult EntradasMes(String Fecha)
         {
+            var departamentos = db.Departamentos.ToList();
+
+            var listadepartamentos = new SelectList(departamentos, "DepartamentoId", "Nombre");
+            ViewBag.departamentos = listadepartamentos;
+
+            var cargos = db.Cargos.ToList();
+
+            var listacargos = new SelectList(cargos, "CargoId", "Cargo");
+            ViewBag.cargos = listacargos;
+
+            var empleados = db.Empleados.ToList();
+
+            var listaempleados = new SelectList(empleados, "FechaIngreso.month", "FechaIngreso.month" );
+
+            ViewBag.Mes = listaempleados;
+
+
             var Event = from s in db.Empleados select s;
 
             if (!String.IsNullOrEmpty(Fecha))
@@ -190,20 +246,44 @@ namespace HumanServices.Controllers
             return View(Event);
         }
 
-        public ActionResult SalidasMes(String Fecha)
+        public ActionResult SalidasMes(Empleados ed,String Fecha)
         {
+
+            
+
+            
+            var departamentos = db.Departamentos.ToList();
+
+            var listadepartamentos = new SelectList(departamentos, "DepartamentoId", "Nombre");
+            ViewBag.departamentos = listadepartamentos;
+
+            var cargos = db.Cargos.ToList();
+
+            var listacargos = new SelectList(cargos, "CargoId", "Cargo");
+            ViewBag.cargos = listacargos;
+
+            var empleados = db.Empleados.ToList();
+
+            var listaempleados = new SelectList(empleados, "FechaIngreso.month", "FechaIngreso.month");
+
+            ViewBag.Mes = listaempleados;
+
             var Event = from s in db.Empleados select s;
 
-            if (!String.IsNullOrEmpty(Fecha))
-            {
-                int Fecha1 = Convert.ToInt16(Fecha);
+           
+               
+
+                if (!String.IsNullOrEmpty(Fecha))
+                {
+                    int Fecha1 = Convert.ToInt16(Fecha);
 
 
-                Event = Event.Where(x => x.FechaIngreso.Month == Fecha1 && x.Estatus == false);
-            }
-
+                    Event = Event.Where(x => x.FechaIngreso.Month == Fecha1 && x.Estatus == false);
+                }
+           
             return View(Event);
         }
+
 
 
         protected override void Dispose(bool disposing)

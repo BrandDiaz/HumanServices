@@ -48,7 +48,7 @@ namespace HumanServices.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "NominaId,Fecha,EmpleadoId,NominaTotal")] Nomina nomina)
+        public ActionResult Create([Bind(Include = "NominaId,Anio,Meses,EmpleadoId,NominaTotal")] Nomina nomina)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace HumanServices.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "NominaId,Fecha,EmpleadoId,NominaTotal")] Nomina nomina)
+        public ActionResult Edit([Bind(Include = "NominaId,Anio,Meses,EmpleadoId,NominaTotal")] Nomina nomina)
         {
             if (ModelState.IsValid)
             {
@@ -120,8 +120,17 @@ namespace HumanServices.Controllers
             return RedirectToAction("Index");
         }
 
+
         public ActionResult FiltroNomina(String Fecha)
         {
+            var nominas = db.Nomina.ToList();
+
+            var listanomina = new SelectList(nominas, "Anio", "Meses");
+            ViewBag.Anio = listanomina;
+
+            var listanomina2 = new SelectList(nominas, "Meses", "Anio");
+            ViewBag.Meses = listanomina2;
+
             var Event = from s in db.Nomina select s;
 
             if (!String.IsNullOrEmpty(Fecha))
@@ -129,7 +138,7 @@ namespace HumanServices.Controllers
                 int Fecha1 = Convert.ToInt16(Fecha);
 
 
-                Event = Event.Where(x => x.Fecha.Year == Fecha1 || x.Fecha.Month == Fecha1);
+                Event = Event.Where(x => x.Anio == Fecha1 || x.Meses == Fecha1);
             }
 
             return View(Event);

@@ -8,10 +8,10 @@
 
 <p>
 <p>
-   
+
     <form class="" action="/Empleados1/SalidasMes" method="post">
 <p>
-    Busqueda por Mes: @Html.TextBox("Fecha", "", new { placeholder = "Ingrese numero del mes" })<br\>
+    Busqueda por Mes: @Html.DropDownList("Fecha", ViewBag.Mes as SelectList, "Seleccione")<br\>
         <input type="submit" name="" value="Buscar">
 </p>
     </form>
@@ -79,9 +79,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Estatus)
             </td>
-            <td>
-               
-            </td>
+            <td></td>
         </tr>
     }
 

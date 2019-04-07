@@ -8,15 +8,17 @@
 
 <p>
 <p>
-    
+
     <form class="" action="/Empleados1/FiltroActivos" method="post">
 <p>
-    Busqueda por nombre: @Html.TextBox("Nombre")<br\>
+    Busqueda por nombre: @Html.DropDownList("Nombre", ViewBag.Empleados as SelectList, "Todos")<br\>
         <input type="submit" name="" value="Buscar">
 </p>
     </form>
 </p>
 </p>
+
+
 <table class="table">
     <tr>
         <th>
@@ -79,9 +81,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Estatus)
             </td>
-            <td>
-              
-            </td>
+            <td></td>
         </tr>
     }
 

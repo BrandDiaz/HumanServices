@@ -4,11 +4,9 @@
     ViewBag.Title = "MostrarDepartamentos";
 }
 
-<h2>MostrarDepartamentos</h2>
+<h2>Departamentos</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -29,9 +27,7 @@
             @Html.DisplayFor(modelItem => item.Nombre)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.DepartamentoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.DepartamentoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.DepartamentoId })
+       
         </td>
     </tr>
 }

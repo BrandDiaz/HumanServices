@@ -120,16 +120,26 @@ namespace HumanServices.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult MostrarPermisos(Empleados ed,String Nombre)
+       
+
+        public ActionResult MostrarPermisos(Empleados ed, String Nombre)
         {
+            var empleados = db.Empleados.ToList();
+
+            var listaEmpleados = new SelectList(empleados, "EmpleadoId", "Nombre");
+            ViewBag.Empleados = listaEmpleados;
+
             var Nombres = from s in db.Permisos select s;
+           
             if (!String.IsNullOrEmpty(Nombre))
             {
-                 int nombre2 = Convert.ToInt32(Nombre);
+                int nombre2 = Convert.ToInt32(Nombre);
                 Nombres = Nombres.Where(x => x.EmpleadoId == nombre2);
             }
 
-            return View(Nombres);
+            return View(Nombres.ToList());
+
+           
         }
 
 

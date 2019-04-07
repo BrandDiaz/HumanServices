@@ -4,28 +4,23 @@
     ViewBag.Title = "MostrarPermisos";
 }
 
-<h2>MostrarPermisos</h2>
+<h2>Buscar Permisos</h2>
 
 <p>
 <p>
 
     <form class="" action="/Permisos/MostrarPermisos" method="post">
 <p>
-    Busqueda por nombre: @Html.TextBox("Nombre")<br\>
+    Busqueda por nombre: @Html.DropDownList("Nombre", ViewBag.Empleados as SelectList, "Seleccione")<br\>
         <input type="submit" name="" value="Buscar">
 </p>
     </form>
 </p>
 </p>
-
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Empleados.EmpleadoId)
+            @Html.DisplayNameFor(model => model.Empleados.Nombre)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Desde)
@@ -43,7 +38,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Empleados.EmpleadoId)
+                @Html.DisplayFor(modelItem => item.Empleados.Nombre)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Desde)
