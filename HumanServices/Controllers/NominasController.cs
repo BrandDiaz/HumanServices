@@ -39,7 +39,7 @@ namespace HumanServices.Controllers
         // GET: Nominas/Create
         public ActionResult Create()
         {
-            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Nombre");
+            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "NominaTotal");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace HumanServices.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Nombre", nomina.EmpleadoId);
+            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "NominaTotal", nomina.EmpleadoId);
             return View(nomina);
         }
 

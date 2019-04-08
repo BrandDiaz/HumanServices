@@ -17,7 +17,7 @@ namespace HumanServices.Controllers
         // GET: Salidas
         public ActionResult Index()
         {
-            var salidas = db.Salidas.Include(s => s.Empleados);
+            var salidas = db.Salidas.Include(s => s.Empleados).Include(s => s.TipoSalidas);
             return View(salidas.ToList());
         }
 
@@ -40,6 +40,7 @@ namespace HumanServices.Controllers
         public ActionResult Create()
         {
             ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Nombre");
+            ViewBag.TipoSalida = new SelectList(db.TipoSalidas, "TipoSalidaId", "TipoSalidas");
             return View();
         }
 
@@ -58,6 +59,7 @@ namespace HumanServices.Controllers
             }
 
             ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Nombre", salidas.EmpleadoId);
+            ViewBag.TipoSalida = new SelectList(db.TipoSalidas, "TipoSalidaId", "TipoSalidas", salidas.TipoSalida);
             return View(salidas);
         }
 
@@ -74,6 +76,7 @@ namespace HumanServices.Controllers
                 return HttpNotFound();
             }
             ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Nombre", salidas.EmpleadoId);
+            ViewBag.TipoSalida = new SelectList(db.TipoSalidas, "TipoSalidaId", "TipoSalidas", salidas.TipoSalida);
             return View(salidas);
         }
 
@@ -91,6 +94,7 @@ namespace HumanServices.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Nombre", salidas.EmpleadoId);
+            ViewBag.TipoSalida = new SelectList(db.TipoSalidas, "TipoSalidaId", "TipoSalidas", salidas.TipoSalida);
             return View(salidas);
         }
 

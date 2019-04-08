@@ -25,6 +25,7 @@ namespace HumanServices.Models
         public DateTime FechaIngreso { get; set; }
         public int Salario { get; set; }
         public bool Estatus { get; set; }
+        public int NominaTotal { get; set; }
 
         public Departamentos Departamentos { get; set; }
         public Cargos Cargos { get; set; }

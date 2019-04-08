@@ -13,11 +13,13 @@ namespace HumanServices.Models
         public int SalidaId { get; set; }
         [ForeignKey("Empleados")]
         public int EmpleadoId { get; set; }
-        public string TipoSalida { get; set; }
+        [ForeignKey("TipoSalidas")]
+        public int TipoSalida { get; set; }
         public string Motivo { get; set; }
         public string FechaSalida { get; set; }
 
         public Empleados Empleados { get; set; }
+        public TipoSalida TipoSalidas { get; set; }
 
 
     }

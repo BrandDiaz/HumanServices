@@ -16,9 +16,11 @@ namespace HumanServices.Models
         public DbSet<Vacaciones> Vacaciones { get; set; }
         public DbSet<Permisos> Permisos { get; set; }
         public DbSet<Licencias> Licencias { get; set; }
+        public DbSet<TipoSalida> TipoSalidas { get; set; }
 
-        
 
-        
+
+
+
     }
 }

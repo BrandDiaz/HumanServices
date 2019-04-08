@@ -151,6 +151,7 @@
     <Compile Include="Models\Permisos.cs" />
     <Compile Include="Models\Salidas.cs" />
     <Compile Include="Models\ServicesDB.cs" />
+    <Compile Include="Models\TipoSalida.cs" />
     <Compile Include="Models\Vacaciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -1952,11 +1953,6 @@
     <Content Include="Views\Empleados1\Details.cshtml" />
     <Content Include="Views\Empleados1\Edit.cshtml" />
     <Content Include="Views\Empleados1\Index.cshtml" />
-    <Content Include="Views\Salidas\Create.cshtml" />
-    <Content Include="Views\Salidas\Delete.cshtml" />
-    <Content Include="Views\Salidas\Details.cshtml" />
-    <Content Include="Views\Salidas\Edit.cshtml" />
-    <Content Include="Views\Salidas\Index.cshtml" />
     <Content Include="Views\Vacaciones\Create.cshtml" />
     <Content Include="Views\Vacaciones\Delete.cshtml" />
     <Content Include="Views\Vacaciones\Details.cshtml" />
@@ -1986,6 +1982,11 @@
     <Content Include="Views\Nominas\Edit.cshtml" />
     <Content Include="Views\Nominas\Index.cshtml" />
     <Content Include="Views\Nominas\FiltroNomina.cshtml" />
+    <Content Include="Views\Salidas\Create.cshtml" />
+    <Content Include="Views\Salidas\Delete.cshtml" />
+    <Content Include="Views\Salidas\Details.cshtml" />
+    <Content Include="Views\Salidas\Edit.cshtml" />
+    <Content Include="Views\Salidas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
