@@ -4,7 +4,7 @@
     ViewBag.Title = "MostrarPermisos";
 }
 
-<h2>Buscar Permisos</h2>
+<h2>Permisos</h2>
 
 <p>
 <p>
@@ -50,9 +50,9 @@
                 @Html.DisplayFor(modelItem => item.Comentarios)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.PermisosId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.PermisosId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.PermisosId })
+                @Html.ActionLink("Editar", "Edit", new { id = item.PermisosId }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.PermisosId }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.PermisosId })
             </td>
         </tr>
     }
